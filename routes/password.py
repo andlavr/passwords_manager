@@ -35,6 +35,16 @@ async def get_password(app_name: Optional[str] = None, token: Optional[str] = No
 
         return result
 
+@router.get("/get_app_list/")
+async def get_app_list(token: Optional[str] = None, session: AsyncSession = Depends(get_session)):
+
+    if token != os.getenv("TOKEN"):
+        return []
+
+    result = await crud_methods.GET.app_list(session)
+
+    return result
+
 
 
 @router.post("/post_password/")

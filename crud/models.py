@@ -21,7 +21,7 @@ class Passwords(DeclarativeBase):
 
 class Keys(DeclarativeBase):
     """
-    Класс для создания объектов типа key и ддобавления их в БД
+    Класс для создания объектов типа key и добавления их в БД
     """
     __tablename__ = "p_keys"
 
@@ -32,16 +32,16 @@ class Keys(DeclarativeBase):
 
 
 
-class AppKeys(DeclarativeBase):
-    """
-    Класс для создания объектов типа app_key и добавления их в БД
-    """
-    __tablename__ = "a_keys"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    key = Column('a_key', String)
-    app_id = Column(Integer, ForeignKey('passwords.id'))
-    app = relationship("Passwords", cascade="all, delete")
+# class AppKeys(DeclarativeBase):
+#     """
+#     Класс для создания объектов типа app_key и добавления их в БД
+#     """
+#     __tablename__ = "a_keys"
+#
+#     id = Column(Integer, primary_key=True, autoincrement=True)
+#     key = Column('a_key', String)
+#     app_id = Column(Integer, ForeignKey('passwords.id'))
+#     app = relationship("Passwords", cascade="all, delete")
 
 #
 # class Order(Base):

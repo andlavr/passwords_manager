@@ -38,6 +38,18 @@ class GET:
         return data
 
 
+    @staticmethod
+    async def app_list(session: AsyncSession) ->list:
+
+        lists = await session.execute(select(Passwords.app_name))
+        data = lists.fetchall()
+
+        if data:
+            return [row[0] for row in data]
+        return []
+
+
+
 class POST:
     @staticmethod
     async def password(app_name, pswd, key, session: AsyncSession):
