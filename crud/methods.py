@@ -7,18 +7,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from crud.models import Passwords, Keys
 
 
-# from crypt_password import encrypt
-
-
-# async def get_data(session: AsyncSession):
-#     items = await session.execute(select(MyPasswords.app_name, MyPasswords.password))
-#     data = items.fetchall()
-#     return data
-
-# class MyItem(BaseModel):
-#     app_name: str
-#     password: str
-#     token: str
 
 
 class GET:
@@ -54,7 +42,6 @@ class POST:
     @staticmethod
     async def password(app_name, pswd, key, session: AsyncSession):
         try:
-            # await session.execute(select(app_name=app_name, password=pswd).where(MyPasswords.token == token))
 
             password_id = await session.execute(
                 insert(
